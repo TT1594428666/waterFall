@@ -37,6 +37,7 @@ static NSString *const identifier = @"shopCell";
     [self setupRefresh];
     [self loadDataAndPrase];
     
+    NSLog(@"123");
 }
 
 
