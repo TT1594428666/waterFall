@@ -4,13 +4,15 @@
 //
 //  Created by apple on 16/3/27.
 //  Copyright © 2016年 xiaoM. All rights reserved.
-//
+//  ******  由于plist文件的URL问题导致 某些图片不能显示
 
 #import "ViewController.h"
 #import "TTShopCollectionViewCell.h"
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import "TTWaterFlowLayout.h"
+
+
 
 @interface ViewController ()<UICollectionViewDataSource,TTWaterFlowLayoutDelegate>
 
@@ -35,8 +37,9 @@ static NSString *const identifier = @"shopCell";
     [self setupRefresh];
     [self loadDataAndPrase];
     
-    
 }
+
+
 #pragma mark setupRefresh
 - (void)setupRefresh{
     
@@ -101,6 +104,8 @@ static NSString *const identifier = @"shopCell";
     
     TTShopCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     cell.shop = self.shopArr[indexPath.row];
+    NSLog(@"%ld",(long)indexPath.row);
+    NSLog(@"%@",cell.shop.img);
     return cell;
 }
 
@@ -117,7 +122,7 @@ static NSString *const identifier = @"shopCell";
 
 /** 列数 */
 - (CGFloat)columnCountInWaterFlowLayout:(TTWaterFlowLayout *)waterFlowLayout{
-    return 3;
+    return 4;
 }
 /** 列间距 */
 - (CGFloat)columnMarginInWaterFlowLayout:(TTWaterFlowLayout *)waterFlowLayout{

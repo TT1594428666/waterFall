@@ -20,14 +20,17 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
+    
 }
 
 -(void)setShop:(TTShop *)shop{
     
     _shop = shop;
     
-    self.priceLabel.text = shop.price;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:shop.img] placeholderImage:[UIImage imageWithContentsOfFile:@"placeholder.png"]];
+    self.priceLabel.text = _shop.price;
+    
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:_shop.img] placeholderImage:[UIImage imageWithContentsOfFile:@"me_img.jpg"]];
     
 }
 @end
